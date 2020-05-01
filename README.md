@@ -1,7 +1,7 @@
 # Landing page ![alt text][logo]
 [logo]: https://alexpwls.github.io/personal-blog-website/images/favicon/favicon-16x16.png "Purple dot"
 
-Demo link: [https://alexpwls.github.io/personal-blog-website/](https://alexpwls.github.io/personal-blog-website/ "Landing page demo link")
+Demo link: [https://alexpwls.github.io/landing-page/](https://alexpwls.github.io/landing-page/ "Landing page demo link")
 ---
 
 ## Description:
