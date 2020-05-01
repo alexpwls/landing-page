@@ -1,0 +1,125 @@
+@import "reset.css";
+@import "design-system.css";
+
+main {
+	width: 100%;
+	display: grid;
+	grid-template-rows: 100px 1fr 100px;
+    grid-template-areas: "hd" "ar" "ft";
+}
+
+header {
+    width: 100%;
+    grid-area: hd;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    box-shadow: 0 4px 2px -2px #ececec;
+}
+
+nav {
+    margin-right: 100px;
+    justify-self: end;
+}
+
+section {
+    grid-area: ar;
+}
+
+footer {
+    grid-area: ft;
+}
+
+.logo {
+	width: 18px;
+}
+
+.logo-footer {
+	width: 11px;
+}
+
+nav {
+    float: right;
+}
+
+h1 a,
+h3 a {
+	text-decoration: none;
+	color: #333;
+}
+
+article {
+    display: grid;
+	grid-template-columns: 480px 1fr;
+    grid-template-rows: calc(100vh - 100px);
+}
+
+.article-item {
+    margin: auto;
+}
+
+.article-item-image img {
+    width: 400px;
+    border: 1px solid #666;
+}
+
+.article-item-content h3 {
+    font-size: 2em;
+}
+
+footer {
+	text-align: center;
+}
+
+.dropdown {
+    margin: 30px auto;
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+  
+.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.edit-articles {
+    display: none;
+    height: 175px;
+    width: 400px;
+    position: fixed;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 25px;
+    text-align:center;
+}
+
+.edit-articles h3 {
+    color: #fff;
+    margin: 15px 0;
+}
+
+.log {
+    color: #fff;
+    margin: 0 5px;
+}
+  

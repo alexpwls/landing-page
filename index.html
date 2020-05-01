@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing page | Alex Pauwels</title>
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
+    <link rel="mask-icon" href="images/favicon/safari-pinned-tab.svg" color="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Styling -->
+    <link rel="stylesheet" type="text/css" href="style/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=PT+Serif&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <header>
+            <h1><a href="index.html">Alex Pauwels Blog <img src="images/logo.png" class="logo" alt="logo" title="Purple dot"></a></h1>
+            <nav>
+                <div class="dropdown">
+                    <button>Jump to any article 👇</button>
+                    <div class="dropdown-content">
+                        <a href="#article-1" id="link-1">Article 1</a>
+                        <a href="#article-2" id="link-2">Article 2</a>
+                        <a href="#article-3" id="link-3">Article 3</a>
+                    </div>
+                </div>
+                <button onclick="openEditArticles()">Toggle edit articles ⚙️</button>
+            </nav>
+        </header>
+        <section>
+            <h2>Articles:</h2>
+            <article id="article-1" class="lightgrey">
+                <div class="article-item">
+                    <div class="article-item-image">
+                        <figure>
+                            <img src="images/image.png" alt="Purple dot." title="Purple dot.">
+                            <figcaption>Purple dot.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="article-item">
+                    <div class="article-item-content">
+                        <h3><a href="#" class="purple">Article 1</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, perferendis ab a maxime amet quo nostrum nobis mollitia quaerat doloremque accusantium accusamus voluptatibus architecto temporibus harum ex consequatur laboriosam sequi!</p>
+                        <a href="#">Read more</a>
+                    </div>
+                </div>
+            </article>
+            <article id="article-2">
+                <div class="article-item">
+                    <div class="article-item-image">
+                        <figure>
+                            <img src="images/image.png" alt="Purple dot." title="Purple dot.">
+                            <figcaption>Purple dot.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="article-item">
+                    <div class="article-item-content">
+                        <h3><a href="#" class="purple">Article 2</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, perferendis ab a maxime amet quo nostrum nobis mollitia quaerat doloremque accusantium accusamus voluptatibus architecto temporibus harum ex consequatur laboriosam sequi!</p>
+                        <a href="#">Read more</a>
+                    </div>
+                </div>
+            </article>
+            <article id="article-3" class="lightgrey">
+                <div class="article-item">
+                    <div class="article-item-image">
+                        <figure>
+                            <img src="images/image.png" alt="Purple dot." title="Purple dot.">
+                            <figcaption>Purple dot.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+                <div class="article-item">
+                    <div class="article-item-content">
+                        <h3><a href="#" class="purple">Article 3</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, perferendis ab a maxime amet quo nostrum nobis mollitia quaerat doloremque accusantium accusamus voluptatibus architecto temporibus harum ex consequatur laboriosam sequi!</p>
+                        <a href="#">Read more</a>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <footer class="box">
+            <p>Alex Pauwels Blog <img src="images/logo.png" class="logo-footer" alt="Logo" title="Purple dot"> &copy; 2020</p>
+        </footer>
+    </main>
+    <section id="edit-articles" class="edit-articles">
+        <button class="closeBtn" onclick="closeEditArticles()">Close this ➡️</button>
+        <h3>Edit articles</h3>
+        <button class="greyBtn" onclick="addArticle()">Add a random article</button>
+        <button class="greyBtn" onclick="deleteArticle()">Delete the last article</button>
+        <p class="log">Click on any of the buttons to perform an action.</p>
+    </section>
+    <script src="js/app.js"></script>
+</body>
+</html>
