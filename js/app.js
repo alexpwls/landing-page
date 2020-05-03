@@ -1,10 +1,11 @@
 // Page setup
 
-let articles = [1, 2, 3];
+let articles = [1, 2, 3, 4];
 let evenArticle = ``;
 let log = document.querySelector('.log');
 const articleSection = document.querySelector('section');
 const activeArticle = document.querySelector('.active-article');
+const dropdownParent = document.querySelector('.dropdown-content');
 
 function setupArticles() {
     for (article of articles) {
@@ -13,7 +14,14 @@ function setupArticles() {
     }
 }
 
+function setupDropdownArticles() {
+    for (article of articles) {
+        dropdownParent.insertAdjacentHTML('beforeend', articleDropdownHTML(article));
+    }
+}
+
 setupArticles();
+setupDropdownArticles();
 
 // This fix makes sure that the header is always above the article when scrolling down:
 
@@ -33,7 +41,7 @@ function closeEditArticles() {
 
 // Edit articles add random article and delete last article:
 
-const dropdownParent = document.querySelector('.dropdown-content');
+
 
 function articleHTML(newArticle) {
     // Check if the last article is an even number, this is required to add the lightgrey background
@@ -69,7 +77,6 @@ function addArticle() {
         log.textContent = `You can't create more than 10 articles.`;
     } else {
         articles.push(newArticle);
-        console.log(articles);
         articleSection.insertAdjacentHTML('beforeend', articleHTML(newArticle));
         dropdownParent.insertAdjacentHTML('beforeend', articleDropdownHTML(newArticle));
     }
@@ -79,7 +86,6 @@ function deleteArticle() {
     lastArticleCount = articles.length
     if (lastArticleCount > 0) {
         articles.pop(lastArticleCount);
-        console.log(articles);
         let lastArticle = document.querySelector(`#article-${lastArticleCount}`);
         let lastArticleLink = document.querySelector(`#link-${lastArticleCount}`);
         lastArticle.remove();
