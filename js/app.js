@@ -1,3 +1,20 @@
+// Page setup
+
+let articles = [1, 2, 3];
+let evenArticle = ``;
+let log = document.querySelector('.log');
+const articleSection = document.querySelector('section');
+const activeArticle = document.querySelector('.active-article');
+
+function setupArticles() {
+    for (article of articles) {
+        articleSection.insertAdjacentHTML('beforeend', articleHTML(article));
+        log.textContent = 'Click on any of the buttons to perform an action.';
+    }
+}
+
+setupArticles();
+
 // This fix makes sure that the header is always above the article when scrolling down:
 
 window.addEventListener('hashchange', function(e) {
@@ -16,17 +33,7 @@ function closeEditArticles() {
 
 // Edit articles add random article and delete last article:
 
-const articleParent = document.querySelector('section');
 const dropdownParent = document.querySelector('.dropdown-content');
-let log = document.querySelector('.log');
-let currentArticles = 3;
-let lastArticleCount = 3;
-let evenArticle = ``;
-
-function articleCount() {
-    currentArticles = document.querySelectorAll('article').length;
-    return currentArticles;
-}
 
 function articleHTML(newArticle) {
     // Check if the last article is an even number, this is required to add the lightgrey background
@@ -57,19 +64,22 @@ function articleDropdownHTML(newArticle) {
 }
 
 function addArticle() {
-    let newArticle = articleCount() + 1;
+    let newArticle = articles.length + 1;
     if (newArticle > 10) {
         log.textContent = `You can't create more than 10 articles.`;
     } else {
-        articleParent.insertAdjacentHTML('beforeend', articleHTML(newArticle));
+        articles.push(newArticle);
+        console.log(articles);
+        articleSection.insertAdjacentHTML('beforeend', articleHTML(newArticle));
         dropdownParent.insertAdjacentHTML('beforeend', articleDropdownHTML(newArticle));
     }
 }
 
 function deleteArticle() { 
-    lastArticleCount = articleCount();
-    console.log(lastArticleCount);
+    lastArticleCount = articles.length
     if (lastArticleCount > 0) {
+        articles.pop(lastArticleCount);
+        console.log(articles);
         let lastArticle = document.querySelector(`#article-${lastArticleCount}`);
         let lastArticleLink = document.querySelector(`#link-${lastArticleCount}`);
         lastArticle.remove();
@@ -80,3 +90,26 @@ function deleteArticle() {
     }
 
 }
+
+// Check for elements in viewport
+
+function checkForActiveElements() {
+    for (let article of articles) {
+        let articleElement = document.querySelector(`#article-${article}`);
+        elementInViewport(articleElement);
+    }
+  }
+  
+window.onscroll = checkForActiveElements;
+  
+function elementInViewport(element) {
+    let bounding = element.getBoundingClientRect();
+    if (
+        bounding.top >= 0 &&
+        bounding.left >= 0 &&
+        bounding.right <= (window.innerWidth || document.documentElement.clientWidth) &&
+        bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+    ) {
+        activeArticle.innerHTML = `<h3>Now reading: ${element.id}</h3>`;
+    }
+  }
