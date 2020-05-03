@@ -101,6 +101,11 @@ footer {
 	display: block;
 }
 
+.active {
+	color: #fff;
+	background: #333;
+}
+
 .dropdown:hover .dropdown-content {
 	display: block;
 }

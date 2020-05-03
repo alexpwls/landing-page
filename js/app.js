@@ -26,6 +26,8 @@ setupDropdownArticles();
 // This fix makes sure that the header is always above the article when scrolling down:
 
 window.addEventListener('hashchange', function(e) {
+    activeLink = e.newURL.split('#').pop();
+    updateActiveLink(activeLink);
     window.scrollTo(window.scrollX, window.scrollY - 100);
 }, false);
 
@@ -40,8 +42,6 @@ function closeEditArticles() {
 }
 
 // Edit articles add random article and delete last article:
-
-
 
 function articleHTML(newArticle) {
     // Check if the last article is an even number, this is required to add the lightgrey background
@@ -107,6 +107,16 @@ function checkForActiveElements() {
   }
   
 window.onscroll = checkForActiveElements;
+
+function updateActiveLink(activeLinkId) {
+    allActiveLinks = document.querySelectorAll('.active')
+    for (let link of allActiveLinks) {
+        link.classList.remove("active");
+    }
+    idInt = activeLinkId.split('-').pop();
+    let activeLink = document.querySelector(`#link-${idInt}`);
+    activeLink.classList.add("active");
+}
   
 function elementInViewport(element) {
     let bounding = element.getBoundingClientRect();
@@ -117,5 +127,6 @@ function elementInViewport(element) {
         bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight)
     ) {
         activeArticle.innerHTML = `<h3>Now reading: ${element.id}</h3>`;
+        updateActiveLink(element.id)
     }
   }
