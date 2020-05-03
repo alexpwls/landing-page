@@ -1,7 +1,4 @@
-// This fix makes sure that the header is always above the article:
-
-const header = document.querySelector('header');
-let currentLocation = "article-one";
+// This fix makes sure that the header is always above the article when scrolling down:
 
 window.addEventListener('hashchange', function(e) {
     window.scrollTo(window.scrollX, window.scrollY - 100);
@@ -61,8 +58,12 @@ function articleDropdownHTML(newArticle) {
 
 function addArticle() {
     let newArticle = articleCount() + 1;
-    articleParent.insertAdjacentHTML('beforeend', articleHTML(newArticle));
-    dropdownParent.insertAdjacentHTML('beforeend', articleDropdownHTML(newArticle));
+    if (newArticle > 10) {
+        log.textContent = `You can't create more than 10 articles.`;
+    } else {
+        articleParent.insertAdjacentHTML('beforeend', articleHTML(newArticle));
+        dropdownParent.insertAdjacentHTML('beforeend', articleDropdownHTML(newArticle));
+    }
 }
 
 function deleteArticle() { 
