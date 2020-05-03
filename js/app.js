@@ -40,22 +40,18 @@ function articleHTML(newArticle) {
     }
     log.textContent = `Added: Article ${newArticle}`;
     let html = `<article id="article-${newArticle}" ${evenArticle}>
-            <div class="article-item">
-                <div class="article-item-image">
-                    <figure>
-                        <img src="images/image.png" alt="Purple dot." title="Purple dot.">
-                        <figcaption>Purple dot.</figcaption>
-                    </figure>
-                </div>
-            </div>
-            <div class="article-item">
-                <div class="article-item-content">
-                    <h3><a href="#" class="purple">Article ${newArticle}</a></h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, perferendis ab a maxime amet quo nostrum nobis mollitia quaerat doloremque accusantium accusamus voluptatibus architecto temporibus harum ex consequatur laboriosam sequi!</p>
-                    <a href="#">Read more</a>
-                </div>
-            </div>
-        </article>`;
+                    <div class="article-item-image">
+                        <figure>
+                            <img src="images/image.png" alt="Purple dot." title="Purple dot.">
+                            <figcaption>Purple dot.</figcaption>
+                        </figure>
+                    </div>
+                    <div class="article-item-content">
+                        <h3><a href="#" class="purple">Article ${newArticle}</a></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, perferendis ab a maxime amet quo nostrum nobis mollitia quaerat doloremque accusantium accusamus voluptatibus architecto temporibus harum ex consequatur laboriosam sequi!</p>
+                        <a href="#">Read more</a>
+                    </div>
+                </article>`;
     return html;
 }
 
