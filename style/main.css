@@ -160,7 +160,7 @@ footer {
 	}
 	article {
 		grid-template-columns: 1fr;
-        grid-template-rows: calc(100vh - 300px);
+        grid-template-rows: 300px calc(100vh - 400px);
 		grid-template-areas: "acon" "aimg";
 	}
 	figure {
@@ -208,7 +208,7 @@ footer {
 	}
 	article {
 		grid-template-columns: 1fr;
-        grid-template-rows: calc(100vh - 350px);
+        grid-template-rows: 230px calc(100vh - 330px);
 		grid-template-areas: "acon" "aimg";
 	}
 	figure {
@@ -258,7 +258,7 @@ footer {
 	}
 	article {
 		grid-template-columns: 100%;
-        grid-template-rows: calc(100vh - 350px);
+        grid-template-rows: 230px calc(100vh - 330px);
 		grid-template-areas: "acon" "aimg";
 	}
 	figure {
